@@ -14,12 +14,18 @@ void die(const char* msg) {
 }
 //Can replace read and write with send/recv for more control over TCP
 //For example, send/recv can handle flags like MSG_NOSIGNAL to prevent SIGPIPE
-static void do_something(int fd) {
+static void do_something(int connfd) {
     // Placeholder for processing client connection
     // In a real application, you would read/write data here
     char[64] rbuf = {};
     ssize_t n = read(fd, rbuf, sizeof(rbuf) - 1);
+    if(n<0){
+        msg("read() error");
+        return;
+    }
     cout << "Processing client on fd: " << fd << endl;
+    char wbuf[] = "Hello from server!";
+    write(connfd, wbuf, strlen(wbuf));
 }
 
 int main() {
