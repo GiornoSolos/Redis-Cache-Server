@@ -17,15 +17,21 @@ void die(const char* msg) {
 static void do_something(int connfd) {
     // Placeholder for processing client connection
     // In a real application, you would read/write data here
-    char[64] rbuf = {};
-    ssize_t n = read(fd, rbuf, sizeof(rbuf) - 1);
+    char rbuf[64] = {};
+    ssize_t n = read(connfd, rbuf, sizeof(rbuf) - 1);
     if(n<0){
-        msg("read() error");
+        perror("read() error");
         return;
     }
-    cout << "Processing client on fd: " << fd << endl;
+    if(n>0){
+        rbuf[n] = '\0'; // Null-terminate the string
+        cout << "Received from client: " << rbuf << endl;
+    } 
+
+    
     char wbuf[] = "Hello from server!";
     write(connfd, wbuf, strlen(wbuf));
+    cout << "Sent Response to Client" << connfd << endl;
 }
 
 int main() {
