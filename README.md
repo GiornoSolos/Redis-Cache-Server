@@ -1,4 +1,4 @@
-# Redis Cache Server
+# Redis-Compatible Cache Server
 
 A custom Redis-compatible cache server implementation written in C++ for learning systems programming and network protocols.
 
