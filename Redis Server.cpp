@@ -23,7 +23,7 @@ static void do_something(int connfd) {
         perror("read() error");
         return;
     }
-    if(n>0){
+    if(n > 0) {
         rbuf[n] = '\0'; // Null-terminate the string
         cout << "Received from client: " << rbuf << endl;
     } 

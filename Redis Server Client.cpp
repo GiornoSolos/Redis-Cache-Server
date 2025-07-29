@@ -12,6 +12,11 @@
 using namespace std;
 
 
+void die(const char* msg) {
+    perror(msg);
+    exit(1);
+}
+
 
 int main() {    
     int fd = socket(AF_INET, SOCK_STREAM, 0);
@@ -36,6 +41,11 @@ int main() {
     if (n < 0) {
         die("read");
     }
-    printf("server says: %s\n", rbuf);
+    
+    rbuf[n]= '\0'; //Null Terminate the string
+    printf("Server says: %s\n", rbuf);  
+
+    cout << "Client Finished." << endl;
     close(fd);
+    return 0;
 }
