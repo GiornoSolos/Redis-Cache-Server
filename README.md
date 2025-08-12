@@ -2,7 +2,7 @@
 
 A custom Redis-compatible cache server implementation written in C++ for learning systems programming and network protocols.
 
-## 🎯 Project Overview
+## Project Overview
 
 This project implements a Redis-like in-memory key-value store from scratch using low-level C++ socket programming. It's designed as a learning exercise to understand:
 
@@ -12,23 +12,23 @@ This project implements a Redis-like in-memory key-value store from scratch usin
 - Concurrent client handling
 - Redis protocol compatibility
 
-## 🚀 Features
+## Features
 
 ### Current Implementation
-- ✅ **Dual-stack networking**: Supports both IPv4 and IPv6 connections
-- ✅ **TCP socket server**: Robust connection handling with proper error checking
-- ✅ **Socket options**: SO_REUSEADDR for development convenience
-- ✅ **Client connection management**: Accept, process, and close connections gracefully
+-  **Dual-stack networking**: Supports both IPv4 and IPv6 connections
+-  **TCP socket server**: Robust connection handling with proper error checking
+-  **Socket options**: SO_REUSEADDR for development convenience
+-  **Client connection management**: Accept, process, and close connections gracefully
 
 ### Planned Features
-- 🔄 **Redis Protocol (RESP)**: Compatible with Redis clients
-- 🔄 **Core Commands**: GET, SET, DEL, EXISTS, EXPIRE
-- 🔄 **Data Types**: Strings, Lists, Sets, Hashes
-- 🔄 **Persistence**: RDB-style snapshots
-- 🔄 **Concurrency**: Multi-threaded client handling
-- 🔄 **Memory Management**: LRU eviction policies
+-  **Redis Protocol (RESP)**: Compatible with Redis clients
+-  **Core Commands**: GET, SET, DEL, EXISTS, EXPIRE
+-  **Data Types**: Strings, Lists, Sets, Hashes
+-  **Persistence**: RDB-style snapshots
+-  **Concurrency**: Multi-threaded client handling
+-  **Memory Management**: LRU eviction policies
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
@@ -40,7 +40,7 @@ This project implements a Redis-like in-memory key-value store from scratch usin
 └─────────────────┘    └─────────────────┘    └─────────────────┘
 ```
 
-## 🛠️ Technical Details
+## Technical Details
 
 ### Network Layer
 - **IPv4 Endpoint**: `0.0.0.0:1234` (all interfaces)
@@ -63,13 +63,13 @@ if (bind(fd, (struct sockaddr*)&addr, sizeof(addr)) < 0) {
 }
 ```
 
-## 📋 Prerequisites
+## Prerequisites
 
 - **Compiler**: GCC 7+ or Clang 6+ with C++11 support
 - **OS**: Linux, macOS, or WSL2 (POSIX socket support required)
 - **Dependencies**: Standard C++ library only
 
-## 🔧 Building and Running
+## Building and Running
 
 ### Compile
 ```bash
@@ -93,7 +93,7 @@ telnet ::1 1235
 nc localhost 1234
 ```
 
-## 🧪 Testing
+## Testing
 
 ### Basic Connection Test
 ```bash
@@ -110,7 +110,7 @@ The server handles one connection at a time currently. Each connection is:
 2. Processed by `do_something()` function
 3. Gracefully closed
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 redis-cache-server/
@@ -125,7 +125,7 @@ redis-cache-server/
 └── tests/             # Unit tests (planned)
 ```
 
-## 🔬 Learning Objectives
+## Learning Objectives
 
 This project covers key systems programming concepts:
 
@@ -148,30 +148,30 @@ This project covers key systems programming concepts:
 - Signal handling (planned)
 - Memory management for concurrent access
 
-## 🚧 Development Roadmap
+## Development Roadmap
 
-### Phase 1: Foundation ✅
+### Phase 1: Foundation 
 - [x] Basic TCP server with IPv4/IPv6 support
 - [x] Connection accept/close cycle
 - [x] Error handling and logging
 
-### Phase 2: Protocol Implementation 🔄
+### Phase 2: Protocol Implementation
 - [ ] RESP (Redis Serialization Protocol) parser
 - [ ] Basic command structure (GET, SET, PING)
 - [ ] Client-server communication
 
-### Phase 3: Core Functionality 🔄
+### Phase 3: Core Functionality 
 - [ ] In-memory key-value storage
 - [ ] String operations
 - [ ] TTL (Time To Live) support
 
-### Phase 4: Advanced Features 🔄
+### Phase 4: Advanced Features 
 - [ ] Multi-threading for concurrent clients
 - [ ] Additional data types (Lists, Sets, Hashes)
 - [ ] Persistence mechanisms
 - [ ] Configuration file support
 
-## 🤝 Contributing
+## Contributing
 
 This is primarily a learning project, but contributions and suggestions are welcome!
 
@@ -181,18 +181,18 @@ This is primarily a learning project, but contributions and suggestions are welc
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📚 Resources
+## Resources
 
 - [Redis Protocol Specification](https://redis.io/docs/reference/protocol-spec/)
 - [Beej's Guide to Network Programming](https://beej.us/guide/bgnet/)
 - [TCP/IP Illustrated](https://www.amazon.com/TCP-Illustrated-Volume-Implementation/dp/0201633469)
 - [The Linux Programming Interface](https://man7.org/tlpi/)
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Inspired by the original Redis implementation by Salvatore Sanfilippo
 - Socket programming examples from various online tutorials
